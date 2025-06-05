@@ -17,9 +17,9 @@ module Xsub
 EOS
 
     PARAMETERS = {
-      'elapse' => { description: 'Limit on elapsed time', default: '1:00:00', format: '^\d+:\d{2}:\d{2}$' },
+      'elapse' => { description: 'Limit on elapsed time', default: ENV["XSUB_GENKAI_DEFAULT_ELAPSE"] || '1:00:00', format: '^\d+:\d{2}:\d{2}$' },
       'vnode_core' => { description: 'Cores', default: '1', format: '^\d+(x\d+){0,2}$' },
-      'rscgrp' => { description: 'Resource group', default: 'a-inter', format: '^[a-z]+-[a-z0-9]+$' },
+      'rscgrp' => { description: 'Resource group', default: ENV["XSUB_GENKAI_DEFAULT_RSCGRP"] || 'a-inter', format: '^[a-z]+-[a-z0-9]+$' },
       'mpi_procs' => { description: 'MPI process', default: 1, format: '^[1-9]\d*$' },
       'omp_threads' => { description: 'OMP threads', default: 1, format: '^[1-9]\d*$' }
     }
